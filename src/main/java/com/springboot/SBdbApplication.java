@@ -16,15 +16,16 @@ public class SBdbApplication {
         DatabaseOperations databaseOperations = (DatabaseOperations) context
                 .getBean("databaseOperations");
 
+        
+        System.out.println("\n - queryDatabaseTable() \n");
         databaseOperations.querytDatabaseTable();
         
-        //databaseOperations.queryDatabaseView();
-        SqlRowSet rs1 = databaseOperations.queryDatabaseView1();
-      	rs1.last();
-    	System.out.println("\n - queryDatabaseView1 getRow(): " + rs1.getRow());
+        SqlRowSet rs = databaseOperations.queryDatabaseView();
+      	rs.last();
+    	System.out.println("\n - queryDatabaseView()   rowcount = " + rs.getRow() + "\n");
         
  	
-        System.out.println("\n - @Value(${spring.datasource.ur}): " + databaseOperations.getURL());
+        System.out.println("\n\n - @Value(${spring.datasource.ur}): " + databaseOperations.getURL());
 
     }
 }

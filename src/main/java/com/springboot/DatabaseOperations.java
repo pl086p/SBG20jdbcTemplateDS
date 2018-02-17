@@ -20,15 +20,15 @@ public class DatabaseOperations {
     private JdbcTemplate jdbcTemplate;
 
     public void querytDatabaseTable() {
-        String sql = "SELECT ID, NAME, AGE FROM EMPLOYEE";
+        String sql = "SELECT * FROM Product";
         List<Map<String, Object>> list = jdbcTemplate.queryForList(sql);
         for (Map<String, Object> row : list) {
-            System.out.println(row.get("name"));
+            System.out.println(" -" + row.get("name"));
         }
     }
 
-    public SqlRowSet queryDatabaseView1() {
-        String sql = "SELECT * from myView1";
+    public SqlRowSet queryDatabaseView() {
+        String sql = "SELECT * from vw_product";
         SqlRowSet rs = jdbcTemplate.queryForRowSet(sql);
         return rs;
     }  
